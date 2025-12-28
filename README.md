@@ -31,6 +31,7 @@ Bu proje, bu sorunları çözmek amacıyla, **NVIDIA A100** donanımı üzerinde
 
 ---
 
+
 ## 🔍 Tespit Edilen Kritik Hatalar
 Proje, **PCB Defect Dataset** (10.668 Görüntü) kullanılarak endüstride en sık karşılaşılan 6 hatayı tespit etmektedir:
 
@@ -44,6 +45,12 @@ Proje, **PCB Defect Dataset** (10.668 Görüntü) kullanılarak endüstride en s
 | **5 - Spurious Copper** | Tasarımda olmayan, kimyasal aşındırma sonrası kalan bakır artıkları. |
 
 ---
+![test_0001](https://github.com/user-attachments/assets/cecaf624-bc67-40bb-9bba-cbd62505d9a8)
+
+![val_batch0_pred_640_640](https://github.com/user-attachments/assets/d90f1ce9-3cdc-4e39-9550-7fbc9091ffb9)
+
+
+
 
 ## ⚙️ Teknik Mimari ve Mühendislik Yaklaşımı
 
