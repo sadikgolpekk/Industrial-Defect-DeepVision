@@ -16,6 +16,10 @@ Bu çalışma; insan gözünden kaçabilen mikroskobik üretim hatalarını (kı
 
 ---
 
+![624ac40503a5276b4daf4279_PCB-Assembly-Visual-Inspection (1)](https://github.com/user-attachments/assets/6a2f8e48-c292-43d4-a2ef-d29e342824dc)
+
+
+
 ## 🌍 Projenin Amacı ve Endüstriyel Motivasyon
 
 Endüstri 4.0 standartlarında, üretim hatları çok yüksek hızlarda çalışmaktadır. Geleneksel manuel kalite kontrol yöntemleri şu dezavantajlara sahiptir:
@@ -52,8 +56,11 @@ Bu projeyi standart bir yapay zeka uygulamasından ayıran temel optimizasyonlar
 
 ### 2. Donanım Optimizasyonu (NVIDIA A100) ⚡
 Eğitim süreci **Google Colab Pro+** altyapısında, **NVIDIA A100-SXM4 (80GB VRAM)** kullanılarak gerçekleştirilmiştir.
-* **AutoBatch:** Dinamik batch boyutu (Ortalama: 38-40) ile GPU belleği tam kapasite (%100) kullanılmıştır.
-* **RAM Caching:** Disk darboğazını (I/O Bottleneck) aşmak için 22GB boyutundaki veri seti tamamen RAM'e önbelleklenmiştir.
+* **AutoBatch:** Dinamik batch boyutu ( ile GPU belleği tam kapasite  kullanılmaya çalışılmıştır.
+* **RAM Caching:** Disk darboğazını (I/O Bottleneck) aşmak için veri seti tamamen RAM'e önbelleklenmiştir.
+
+
+![NVIDIA-researchers-use-AI-to-design-better-arithmetic-circuits-that-power-our-AI-chips](https://github.com/user-attachments/assets/2d5d5a85-f87b-4658-a065-0225bb8427d3)
 
 ### 3. Model Seçimi: YOLOv13s
 Literatürdeki sınıflandırma (ResNet) modellerinin yerelleştirme (Localization) eksikliğini gidermek için, **Attention (Dikkat)** mekanizmalarını (HyperACE) kendi içinde barındıran **YOLOv13s** mimarisi tercih edilmiştir.
