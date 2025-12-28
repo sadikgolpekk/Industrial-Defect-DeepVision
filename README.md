@@ -1,7 +1,15 @@
 
 # 🏭 Industrial-Defect-DeepVision: PCB Yüzey Hataları İçin Derin Öğrenme Çözümü
 
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![YOLOv13](https://img.shields.io/badge/YOLOv13-SOTA-blue?style=for-the-badge) ![Industry 4.0](https://img.shields.io/badge/Industry-4.0-green?style=for-the-badge) ![A100](https://img.shields.io/badge/NVIDIA-A100-76B900?style=for-the-badge&logo=nvidia&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+<div align="center">
+
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![YOLOv13](https://img.shields.io/badge/YOLOv13-SOTA-blue?style=for-the-badge)](https://github.com/ultralytics/ultralytics)
+[![Industry 4.0](https://img.shields.io/badge/Industry-4.0-green?style=for-the-badge)](https://en.wikipedia.org/wiki/Fourth_Industrial_Revolution)
+[![A100](https://img.shields.io/badge/NVIDIA-A100-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://www.nvidia.com/en-us/data-center/a100/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
 
 **Industrial-Defect-DeepVision**, elektronik üretim endüstrisinde (PCB) kalite kontrol süreçlerini otomatize etmek için geliştirilmiş, **YOLOv13** tabanlı bir **Otomatik Optik Denetim (AOI)** projesidir.
 
