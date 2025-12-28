@@ -73,14 +73,21 @@ Projenin en kritik aşamasında, NVIDIA A100 donanımı kullanılarak çözünü
 
 ### Senaryo Karşılaştırması ve Sonuçlar
 
+### Senaryo Karşılaştırması ve Sonuçlar
+
 | Özellik | Senaryo A: 640px (Baseline) | Senaryo B: 960px (High-Res) |
 | :--- | :--- | :--- |
 | **Kod Dosyası** | `code_640x640.ipynb` | `code_960x960.ipynb` |
-| **Donanım Yükü** | Düşük (~54.4GB VRAM @ Batch 109) | Çok Yüksek (~56GB VRAM @ Batch 38) |
-| **Eğitim Süresi** | **1.07 Saat** (Çok Hızlı) | **2.97 Saat** (Yavaş) |
-| **Mozaik Stratejisi** | Standart | Kademeli Kapatma (Close Mosaic=10) |
-| **Recall (Başarım)** | %46 (Stabil) | %45.9 (İyileşme Yok) |
-| **Durum** | **✅ OPTİMUM ÇÖZÜM** | ❌ VERİMSİZ (Diminishing Returns) |
+| **Donanım Yükü** | ~54.4GB VRAM @ Batch 109  |~56GB VRAM @ Batch 38  |
+| **Eğitim Süresi** | **1.07 Saat** (Çok Hızlı) | **2.97 Saat** (Yavaş)  |
+| **Mozaik Stratejisi** | ✅ Var (Mozaik + Kademeli Kapatma) | ✅ Var (Mozaik + Kademeli Kapatma) |
+| **Precision (Kesinlik)**| **0.969** (Çok Yüksek)  | 0.966 (Benzer)|
+| **Recall (Yakalama)** | **%46** (Stabil) |%45.9 (İyileşme Yok)  |
+| **Durum** | **✅ OPTİMUM ÇÖZÜM** |❌ VERİMSİZ   |
+
+> **🧪 Bilimsel Bulgular:**
+> 1.  **Veri Doygunluğu:** Orijinal veriler **600x600 px** olduğu için , görüntüleri 960px'e çıkarmak (Upscaling) modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsü oluşmuştur.
+> 2.  **Maliyet/Performans:** 960px eğitimi, donanımı ve süreyi **~3 kat** artırmasına rağmen , **Recall** değerinde istatistiksel olarak anlamlı bir artış sağlamamıştır.
 
 > **🧪 Bilimsel Bulgular:**
 > 1.  **Veri Doygunluğu:** Orijinal veriler 600px olduğu için, 960px'e upscaling yapmak modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsünü öğrenmesine (Overfitting) neden olmuştur.
