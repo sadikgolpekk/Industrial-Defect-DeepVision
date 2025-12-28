@@ -1,4 +1,4 @@
-
+# dataset isimlerini düzenleme ve değiştirme kodları
 
 import os
 
@@ -25,3 +25,4 @@ for a in alt_dosyalar:
     image_yolu=os.path.join(dosya_yolu,a,"images")
     etiket_yolu=os.path.join(dosya_yolu,a,"labels")
     isim_degistir(image_yolu,etiket_yolu,a) 
+
