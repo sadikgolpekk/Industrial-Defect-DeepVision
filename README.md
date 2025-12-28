@@ -1,4 +1,3 @@
-
 # 🏭 Industrial-Defect-DeepVision: PCB Yüzey Hataları İçin Derin Öğrenme Çözümü
 
 <div align="center">
