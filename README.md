@@ -122,12 +122,32 @@ Yapılan kapsamlı testler sonucunda; **640px YOLOv13** modeli projenin nihai ç
 ## 🛠️ Kurulum
 
 ```bash
-# 1. Repoyu klonlayın
+## 🛠️ Kurulum ve Kullanım
+
+Projeyi yerel bilgisayarınızda çalıştırmak veya hazır eğitilmiş ağırlıkları test etmek için aşağıdaki adımları izleyin.
+
+### 1. Kurulum (Installation)
+
+Repoyu klonlayın ve gerekli bağımlılıkları yükleyin:
+
+```bash
+# Repoyu klonlayın
 git clone [https://github.com/sadikgolpekk/Industrial-Defect-DeepVision.git](https://github.com/sadikgolpekk/Industrial-Defect-DeepVision.git)
 cd Industrial-Defect-DeepVision
 
-# 2. Gerekli kütüphaneleri yükleyin
-pip install ultralytics torch torchvision
+# Gerekli kütüphaneleri yükleyin (Ultralytics, Torch vb.)
+pip install ultralytics
 
-# 3. Final modeli (640px) eğitmek için
-# code_640x640.ipynb notebook dosyasını çalıştırın veya script'e çevirin.
+
+# Webcam veya video kaynağı ile gerçek zamanlı test
+yolo predict model=egitim_agirligi/best.pt source=0 show=True
+
+# Veya belirli bir görsel üzerinde test
+yolo predict model=egitim_agirligi/best.pt source='test_image.jpg' save=True
+
+
+# Modeli TensorRT formatına çevir (NVIDIA GPU'lar için en hızlısı)
+yolo export model=egitim_agirligi/best.pt format=engine device=0
+
+# Modeli ONNX formatına çevir (Genel kullanım için)
+yolo export model=egitim_agirligi/best.pt format=onnx
