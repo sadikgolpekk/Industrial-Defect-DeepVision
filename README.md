@@ -11,9 +11,9 @@
 
 </div>
 
-**Industrial-Defect-DeepVision**, elektronik üretim endüstrisinde (PCB) kalite kontrol süreçlerini otomatize etmek için geliştirilmiş; [cite_start]**Hibrit Sınıflandırma (ResNet)** ve **Nesne Tespiti (YOLO)** mimarilerini karşılaştıran kapsamlı bir **Otomatik Optik Denetim (AOI)** projesidir[cite: 5, 9, 12].
+**Industrial-Defect-DeepVision**, elektronik üretim endüstrisinde (PCB) kalite kontrol süreçlerini otomatize etmek için geliştirilmiş; **Hibrit Sınıflandırma (ResNet)** ve **Nesne Tespiti (YOLO)** mimarilerini karşılaştıran kapsamlı bir **Otomatik Optik Denetim (AOI)** projesidir.
 
-[cite_start]Bu çalışma; insan gözünden kaçabilen mikroskobik üretim hatalarını tespit etmek için farklı çözünürlük stratejilerini (640px vs 960px) ve donanım limitlerini **NVIDIA A100** üzerinde test ederek, endüstriyel kullanım için **en optimum (verimli)** çözümü sunar[cite: 156, 157, 275].
+Bu çalışma; insan gözünden kaçabilen mikroskobik üretim hatalarını tespit etmek için farklı çözünürlük stratejilerini (640px vs 960px) ve donanım limitlerini **NVIDIA A100** üzerinde test ederek, endüstriyel kullanım için **en optimum (verimli)** çözümü sunar.
 
 ---
 
@@ -22,26 +22,26 @@
 ## 🌍 Projenin Amacı ve Endüstriyel Motivasyon
 
 Endüstri 4.0 standartlarında, üretim hatları çok yüksek hızlarda çalışmaktadır. Geleneksel manuel kontrol ve eski nesil yöntemler şu dezavantajlara sahiptir:
-* [cite_start]**Yüksek Maliyet & Hata Riski:** İnsan gözü yorulabilir ve mikroskobik hataları kaçırabilir[cite: 11].
-* [cite_start]**Hız Darboğazı:** Seri üretim hızına (Real-Time) yetişememe[cite: 46].
+* **Yüksek Maliyet & Hata Riski:** İnsan gözü yorulabilir ve mikroskobik hataları kaçırabilir.
+* **Hız Darboğazı:** Seri üretim hızına (Real-Time) yetişememe.
 
-Bu proje, bu sorunları çözmek amacıyla; [cite_start]**Classification (Sınıflandırma)** ve **Detection (Tespit)** yaklaşımlarını kıyaslamış ve **Gerçek Zamanlı Edge (Uç) Sistemler** için en uygun mimariyi belirlemiştir[cite: 324, 325, 326].
+Bu proje, bu sorunları çözmek amacıyla; **Classification (Sınıflandırma)** ve **Detection (Tespit)** yaklaşımlarını kıyaslamış ve **Gerçek Zamanlı Edge (Uç) Sistemler** için en uygun mimariyi belirlemiştir.
 
 ---
 
 ## 🔍 Tespit Edilen Kritik Hatalar
-[cite_start]Proje, **PCB Defect Dataset** (10.668 Görüntü) kullanılarak endüstride en sık karşılaşılan 6 hatayı tespit etmektedir[cite: 23, 24].
+Proje, **PCB Defect Dataset** (10.668 Görüntü) kullanılarak endüstride en sık karşılaşılan 6 hatayı tespit etmektedir.
 
-> [cite_start]**⚠️ Kritik Veri Kısıtı:** Orijinal veri setindeki görüntülerin çözünürlüğü **600x600** pikseldir[cite: 32]. [cite_start]Bu durum, "Spur" gibi 3-4 piksellik hataların tespitini zorlaştıran temel faktördür[cite: 34].
+> **⚠️ Kritik Veri Kısıtı:** Orijinal veri setindeki görüntülerin çözünürlüğü **600x600** pikseldir. Bu durum, "Spur" gibi 3-4 piksellik hataların tespitini zorlaştıran temel faktördür.
 
 | Hata Sınıfı | Endüstriyel Tanım |
 | :--- | :--- |
-| **0 - Mouse Bite** | [cite_start]PCB kenarında, malzeme yorgunluğu veya kesim hatası kaynaklı çentikler[cite: 26]. |
-| **1 - Spur** | Devre yollarında istenmeyen, kısa devre riski taşıyan kıl inceliğinde bakır uzantıları. [cite_start]*(En zor sınıf)*[cite: 27]. |
-| **2 - Missing Hole** | [cite_start]Montaj aşamasını engelleyen, delinmemiş via veya komponent delikleri[cite: 28]. |
-| **3 - Short** | [cite_start]Kritik devre hatası; iki iletken hattın kazara birleşmesi[cite: 29]. |
-| **4 - Open Circuit** | [cite_start]İletim hattının kopması sonucu oluşan elektriksel kesinti[cite: 30]. |
-| **5 - Spurious Copper** | [cite_start]Tasarımda olmayan, kimyasal aşındırma sonrası kalan bakır artıkları[cite: 31]. |
+| **0 - Mouse Bite** | PCB kenarında, malzeme yorgunluğu veya kesim hatası kaynaklı çentikler. |
+| **1 - Spur** | Devre yollarında istenmeyen, kısa devre riski taşıyan kıl inceliğinde bakır uzantıları. *(En zor sınıf)*. |
+| **2 - Missing Hole** | Montaj aşamasını engelleyen, delinmemiş via veya komponent delikleri. |
+| **3 - Short** | Kritik devre hatası; iki iletken hattın kazara birleşmesi. |
+| **4 - Open Circuit** | İletim hattının kopması sonucu oluşan elektriksel kesinti. |
+| **5 - Spurious Copper** | Tasarımda olmayan, kimyasal aşındırma sonrası kalan bakır artıkları. |
 
 ---
 
@@ -49,15 +49,15 @@ Bu proje, bu sorunları çözmek amacıyla; [cite_start]**Classification (Sını
 
 ## ⚙️ Teknik Mimari ve Yöntem Karşılaştırması
 
-[cite_start]Bu çalışmada iki farklı derin öğrenme yaklaşımı test edilmiştir[cite: 37]:
+Bu çalışmada iki farklı derin öğrenme yaklaşımı test edilmiştir:
 
 ### 1. Yaklaşım: Hibrit Sınıflandırma (ResNet-50)
-* [cite_start]**Yöntem:** `Resnet_pcbipynb.ipynb` dosyasında uygulanan bu yöntemde, şüpheli bölgeler **ROI Cropping** ile kesilip ResNet modeline sorulmuştur[cite: 38, 40].
-* [cite_start]**Sonuç:** Hata "sınıflandırma" başarısı yüksektir ancak **Bölge Öneri Ağı (RPN)** gerektirdiği için sistem yavaştır (Two-Stage Detector problemi)[cite: 44, 45, 46].
+* **Yöntem:** `Resnet_pcbipynb.ipynb` dosyasında uygulanan bu yöntemde, şüpheli bölgeler **ROI Cropping** ile kesilip ResNet modeline sorulmuştur.
+* **Sonuç:** Hata "sınıflandırma" başarısı yüksektir ancak **Bölge Öneri Ağı (RPN)** gerektirdiği için sistem yavaştır (Two-Stage Detector problemi).
 
 ### 2. Yaklaşım: Tek Aşamalı Tespit (YOLOv13) - **(SEÇİLEN YÖNTEM)**
-* [cite_start]**Yöntem:** Hatanın hem sınıfını hem konumunu tek seferde (Single-Stage) bulur[cite: 41, 42].
-* [cite_start]**Avantaj:** RPN katmanına ihtiyaç duymaz, üretim bandı hızına (Real-Time) uygundur[cite: 48, 49].
+* **Yöntem:** Hatanın hem sınıfını hem konumunu tek seferde (Single-Stage) bulur.
+* **Avantaj:** RPN katmanına ihtiyaç duymaz, üretim bandı hızına (Real-Time) uygundur.
 
 ---
 
@@ -66,7 +66,7 @@ Bu proje, bu sorunları çözmek amacıyla; [cite_start]**Classification (Sını
 Projenin en kritik aşamasında, NVIDIA A100 donanımı kullanılarak çözünürlüğün etkisi analiz edilmiştir.
 
 ### Donanım Altyapısı
-* [cite_start]**GPU:** NVIDIA A100-SXM4 (80GB VRAM)[cite: 156].
+* **GPU:** NVIDIA A100-SXM4 (80GB VRAM).
 * **RAM:** 167 GB (Veri önbellekleme için).
 
 ![NVIDIA-researchers-use-AI-to-design-better-arithmetic-circuits-that-power-our-AI-chips](https://github.com/user-attachments/assets/2d5d5a85-f87b-4658-a065-0225bb8427d3)
@@ -76,15 +76,15 @@ Projenin en kritik aşamasında, NVIDIA A100 donanımı kullanılarak çözünü
 | Özellik | Senaryo A: 640px (Baseline) | Senaryo B: 960px (High-Res) |
 | :--- | :--- | :--- |
 | **Kod Dosyası** | `code_640x640.ipynb` | `code_960x960.ipynb` |
-| **Donanım Yükü** | [cite_start]Düşük (~54.4GB VRAM @ Batch 109) [cite: 161] | [cite_start]Çok Yüksek (~56GB VRAM @ Batch 38) [cite: 266] |
-| **Eğitim Süresi** | [cite_start]**1.07 Saat** (Çok Hızlı) [cite: 160] | [cite_start]**2.97 Saat** (Yavaş) [cite: 266] |
-| **Mozaik Stratejisi** | Standart | [cite_start]Kademeli Kapatma (Close Mosaic=10) [cite: 268] |
-| **Recall (Başarım)** | [cite_start]%46 (Stabil) [cite: 165] | [cite_start]%45.9 (İyileşme Yok) [cite: 270] |
-| **Durum** | **✅ OPTİMUM ÇÖZÜM** | [cite_start]❌ VERİMSİZ (Diminishing Returns) [cite: 258] |
+| **Donanım Yükü** | Düşük (~54.4GB VRAM @ Batch 109) | Çok Yüksek (~56GB VRAM @ Batch 38) |
+| **Eğitim Süresi** | **1.07 Saat** (Çok Hızlı) | **2.97 Saat** (Yavaş) |
+| **Mozaik Stratejisi** | Standart | Kademeli Kapatma (Close Mosaic=10) |
+| **Recall (Başarım)** | %46 (Stabil) | %45.9 (İyileşme Yok) |
+| **Durum** | **✅ OPTİMUM ÇÖZÜM** | ❌ VERİMSİZ (Diminishing Returns) |
 
 > **🧪 Bilimsel Bulgular:**
-> [cite_start]1.  **Veri Doygunluğu:** Orijinal veriler 600px olduğu için, 960px'e upscaling yapmak modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsünü öğrenmesine (Overfitting) neden olmuştur[cite: 273, 274].
-> [cite_start]2.  **Maliyet/Performans:** 960px eğitimi donanımı 3 kat daha fazla yormasına rağmen Recall değerinde anlamlı bir artış sağlamamıştır[cite: 277, 278].
+> 1.  **Veri Doygunluğu:** Orijinal veriler 600px olduğu için, 960px'e upscaling yapmak modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsünü öğrenmesine (Overfitting) neden olmuştur.
+> 2.  **Maliyet/Performans:** 960px eğitimi donanımı 3 kat daha fazla yormasına rağmen Recall değerinde anlamlı bir artış sağlamamıştır.
 
 ---
 
@@ -101,10 +101,10 @@ Proje dosyaları aşağıdaki yapıdadır:
 
 ## 🚀 Sonuç ve Endüstriyel Entegrasyon
 
-Yapılan kapsamlı testler sonucunda; [cite_start]**640px YOLOv13** modeli projenin nihai çözümü olarak belirlenmiştir[cite: 279, 280].
+Yapılan kapsamlı testler sonucunda; **640px YOLOv13** modeli projenin nihai çözümü olarak belirlenmiştir.
 
-* [cite_start]**Edge (Uç) Uyumluluğu:** 640px model, **NVIDIA Jetson Xavier / Orin Nano** gibi uç cihazlarda **30+ FPS** hızla çalışabilir[cite: 329, 330].
-* [cite_start]**Dağıtım:** Model, üretim hattına entegrasyon için **TensorRT** veya **ONNX** formatına dönüştürülmeye hazırdır[cite: 331].
+* **Edge (Uç) Uyumluluğu:** 640px model, **NVIDIA Jetson Xavier / Orin Nano** gibi uç cihazlarda **30+ FPS** hızla çalışabilir.
+* **Dağıtım:** Model, üretim hattına entegrasyon için **TensorRT** veya **ONNX** formatına dönüştürülmeye hazırdır.
 
 ---
 
