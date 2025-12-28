@@ -55,11 +55,16 @@ Bu çalışmada iki farklı derin öğrenme yaklaşımı test edilmiştir:
 * **Yöntem:** `Resnet_pcbipynb.ipynb` dosyasında uygulanan bu yöntemde, şüpheli bölgeler **ROI Cropping** ile kesilip ResNet modeline sorulmuştur.
 * **Sonuç:** Hata "sınıflandırma" başarısı yüksektir ancak **Bölge Öneri Ağı (RPN)** gerektirdiği için sistem yavaştır (Two-Stage Detector problemi).
 
+<img width="1572" height="889" alt="image" src="https://github.com/user-attachments/assets/5b811c67-e19b-4f5c-aec9-2853ae3b5767" />
+
+
+
 ### 2. Yaklaşım: Tek Aşamalı Tespit (YOLOv13) - **(SEÇİLEN YÖNTEM)**
 * **Yöntem:** Hatanın hem sınıfını hem konumunu tek seferde (Single-Stage) bulur.
 * **Avantaj:** RPN katmanına ihtiyaç duymaz, üretim bandı hızına (Real-Time) uygundur.
 
 ---
+![yolo](https://github.com/user-attachments/assets/05c82051-0d7d-499c-b2df-718c8cc5b228)
 
 ## 🔬 Deneysel Süreç: 640px vs 960px (A100 Challenge)
 
@@ -89,9 +94,6 @@ Projenin en kritik aşamasında, NVIDIA A100 donanımı kullanılarak çözünü
 > 1.  **Veri Doygunluğu:** Orijinal veriler **600x600 px** olduğu için , görüntüleri 960px'e çıkarmak (Upscaling) modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsü oluşmuştur.
 > 2.  **Maliyet/Performans:** 960px eğitimi, donanımı ve süreyi **~3 kat** artırmasına rağmen , **Recall** değerinde istatistiksel olarak anlamlı bir artış sağlamamıştır.
 
-> **🧪 Bilimsel Bulgular:**
-> 1.  **Veri Doygunluğu:** Orijinal veriler 600px olduğu için, 960px'e upscaling yapmak modele gerçek detay kazandırmamış, aksine interpolasyon gürültüsünü öğrenmesine (Overfitting) neden olmuştur.
-> 2.  **Maliyet/Performans:** 960px eğitimi donanımı 3 kat daha fazla yormasına rağmen Recall değerinde anlamlı bir artış sağlamamıştır.
 
 ---
 
@@ -99,7 +101,7 @@ Projenin en kritik aşamasında, NVIDIA A100 donanımı kullanılarak çözünü
 
 Proje dosyaları aşağıdaki yapıdadır:
 
-* `Resnet_pcbipynb.ipynb`: ResNet-50 tabanlı sınıflandırma ve hibrit denemeler.
+* `Resnet_pcbipynb.ipynb`: ResNet-50 tabanlı sınıflandırma.
 * `code_640x640.ipynb`: **Final Model.** Endüstriyel standartta (640px) eğitilen, optimize edilmiş YOLOv13 kodu.
 * `code_960x960.ipynb`: A100 üzerinde yapılan deneysel yüksek çözünürlük çalışması.
 * `rename_dataset.py`: Veri seti etiketlerini ve dosya isimlerini düzenleyen yardımcı script.
@@ -112,8 +114,10 @@ Yapılan kapsamlı testler sonucunda; **640px YOLOv13** modeli projenin nihai ç
 
 * **Edge (Uç) Uyumluluğu:** 640px model, **NVIDIA Jetson Xavier / Orin Nano** gibi uç cihazlarda **30+ FPS** hızla çalışabilir.
 * **Dağıtım:** Model, üretim hattına entegrasyon için **TensorRT** veya **ONNX** formatına dönüştürülmeye hazırdır.
-
 ---
+
+<img width="1410" height="732" alt="Ekran görüntüsü 2025-12-28 153942" src="https://github.com/user-attachments/assets/c28b50fc-12c1-44b8-99b8-72953e102835" />
+
 
 ## 🛠️ Kurulum
 
